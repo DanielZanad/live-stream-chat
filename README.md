@@ -1,7 +1,4 @@
-# README.md
-# NLW Agents
-
-Este projeto é composto por duas aplicações: um backend em Node.js usando Fastify e Drizzle ORM, e um frontend em React com Vite e TailwindCSS.
+## Este projeto é composto por duas aplicações: um backend em Node.js usando Fastify e Drizzle ORM, e um frontend em React com Vite e TailwindCSS.
 
 ## Estrutura
 
