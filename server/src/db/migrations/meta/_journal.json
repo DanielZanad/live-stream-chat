@@ -8,6 +8,13 @@
       "when": 1752103357589,
       "tag": "0000_wooden_gambit",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1752254767559,
+      "tag": "0001_daily_talos",
+      "breakpoints": true
     }
   ]
 }
