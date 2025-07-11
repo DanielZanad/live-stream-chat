@@ -7,6 +7,8 @@
   "scripts": {
     "start": "node --env-file .env --experimental-strip-types src/server.ts",
     "dev": "node --env-file .env --experimental-strip-types --watch src/server.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
     "db:seed": "node --env-file .env --experimental-strip-types --watch src/db/seed.ts"
   },
   "dependencies": {
