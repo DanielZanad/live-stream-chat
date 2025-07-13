@@ -6,11 +6,8 @@ import { dayjs } from "@/lib/dayjs";
 
 interface Question {
   id: string;
-
   question: string;
-
   answer?: string | null;
-
   createdAt: string;
 }
 

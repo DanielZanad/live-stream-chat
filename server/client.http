@@ -42,5 +42,5 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "question": "O que é herança em Rust"
+    "question": "Existe herança em Rust"
 }
