@@ -1,6 +1,4 @@
-# NLW Agents
-
-Este projeto tem como principal objetivo gerar respostas automáticas utilizando IA (Google Gemini) sobre assuntos previamente abordados em uma sala, como por exemplo em uma livestream ou vídeo. Usuários podem criar salas, enviar áudios para transcrição e fazer perguntas relacionadas ao conteúdo dessas salas. As respostas são geradas com base nas transcrições dos áudios enviados.
+# Este projeto tem como principal objetivo gerar respostas automáticas utilizando IA (Google Gemini) sobre assuntos previamente abordados em uma sala, como por exemplo em uma livestream ou vídeo. Usuários podem criar salas, enviar áudios para transcrição e fazer perguntas relacionadas ao conteúdo dessas salas. As respostas são geradas com base nas transcrições dos áudios enviados.
 
 ## Principais Funcionalidades
 
