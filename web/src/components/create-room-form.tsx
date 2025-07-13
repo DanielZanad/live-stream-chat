@@ -1,4 +1,8 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { z } from "zod/v4";
+import { useCreateRoom } from "@/http/use-create-room";
+import { Button } from "./ui/button";
 import {
   Card,
   CardContent,
@@ -6,8 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
@@ -18,11 +20,9 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { Button } from "./ui/button";
-import { useCreateRoom } from "@/http/use-create-room";
 
 const createRoomSchema = z.object({
-  name: z.string().min(1, { message: "1 character name" }),
+  name: z.string().min(3, { message: "Inclua no mínimo 3 caracteres" }),
   description: z.string(),
 });
 
@@ -40,7 +40,8 @@ export function CreateRoomForm() {
   });
 
   async function handleCreateRoom({ name, description }: CreateRoomFormData) {
-    await createRoom({ description, name });
+    await createRoom({ name, description });
+
     createRoomForm.reset();
   }
 
@@ -49,15 +50,15 @@ export function CreateRoomForm() {
       <CardHeader>
         <CardTitle>Criar sala</CardTitle>
         <CardDescription>
-          Crie uma nova sala para começar a fazer perguntas e receber respostas
+          Crie uam nova sala para começar a fazer perguntas e receber respostas
           da I.A.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...createRoomForm}>
           <form
-            onSubmit={createRoomForm.handleSubmit(handleCreateRoom)}
             className="flex flex-col gap-4"
+            onSubmit={createRoomForm.handleSubmit(handleCreateRoom)}
           >
             <FormField
               control={createRoomForm.control}
@@ -77,6 +78,7 @@ export function CreateRoomForm() {
                 );
               }}
             />
+
             <FormField
               control={createRoomForm.control}
               name="description"
@@ -93,7 +95,7 @@ export function CreateRoomForm() {
               }}
             />
 
-            <Button type="submit" className="w-full">
+            <Button className="w-full" type="submit">
               Criar sala
             </Button>
           </form>

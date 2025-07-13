@@ -1,13 +1,8 @@
 import { ArrowLeft, Radio } from "lucide-react";
-
 import { Link, Navigate, useParams } from "react-router-dom";
-
 import { QuestionForm } from "@/components/question-form";
-
-import { QuestionItem } from "@/components/question-item";
-
-import { Button } from "@/components/ui/button";
 import { QuestionList } from "@/components/question-list";
+import { Button } from "@/components/ui/button";
 
 type RoomParams = {
   roomId: string;
@@ -31,7 +26,6 @@ export function Room() {
                 Voltar ao Início
               </Button>
             </Link>
-
             <Link to={`/room/${params.roomId}/audio`}>
               <Button className="flex items-center gap-2" variant="secondary">
                 <Radio className="size-4" />
@@ -39,11 +33,9 @@ export function Room() {
               </Button>
             </Link>
           </div>
-
           <h1 className="mb-2 font-bold text-3xl text-foreground">
             Sala de Perguntas
           </h1>
-
           <p className="text-muted-foreground">
             Faça perguntas e receba respostas com IA
           </p>

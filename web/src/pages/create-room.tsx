@@ -11,20 +11,5 @@ export function CreateRoom() {
         </div>
       </div>
     </div>
-
-    // <div>
-    //   <div>Create rooms</div>
-    //   {isLoading ?? <p>Carregando...</p>}
-    //   <div className="flex flex-col gap-2">
-    //     {data &&
-    //       data.map((room) => {
-    //         return (
-    //           <Link key={room.id} to={`/room/${room.id}`}>
-    //             {room.name}
-    //           </Link>
-    //         );
-    //       })}
-    //   </div>
-    // </div>
   );
 }

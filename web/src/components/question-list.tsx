@@ -5,8 +5,8 @@ interface QuestionListProps {
   roomId: string;
 }
 
-export function QuestionList({ roomId }: QuestionListProps) {
-  const { data } = useRoomQuestions(roomId);
+export function QuestionList(props: QuestionListProps) {
+  const { data } = useRoomQuestions(props.roomId);
 
   return (
     <div className="space-y-6">
@@ -16,7 +16,7 @@ export function QuestionList({ roomId }: QuestionListProps) {
         </h2>
       </div>
 
-      {data?.map((question) => {
+      {data?.map((question: any) => {
         return <QuestionItem key={question.id} question={question} />;
       })}
     </div>
