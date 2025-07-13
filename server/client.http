@@ -37,10 +37,10 @@ GET {{baseurl}}/rooms/{{roomId}}/questions
 
 # Create question
 # @name createQuestion
-POST {{baseurl}}/rooms/{{roomId}}/questions
+POST {{baseurl}}/rooms/111179ed-6778-47da-3cb9-f8813aabe33b/questions
 Accept: application/json
 Content-Type: application/json
 
 {
-    "question": "this is a question"
+    "question": "O que é herança em Rust"
 }
