@@ -1,0 +1,45 @@
+# Variables
+@baseurl = http://localhost:3333 
+
+# Health check
+GET {{baseurl}}/health
+
+###
+
+# Get rooms
+# @name getRooms
+GET {{baseurl}}/rooms
+
+###
+
+# Create room
+# @name createRoom
+POST {{baseurl}}/rooms
+Content-Type: application/json
+
+{
+    "name": "test room",
+    "description": "this is a description"
+}
+
+###
+
+@roomId = {{createRoom.response.body.$.roomId}}
+
+###
+
+# Get room questions
+# @name getRoomsQuestions
+GET {{baseurl}}/rooms/{{roomId}}/questions
+
+###
+
+# Create question
+# @name createQuestion
+POST {{baseurl}}/rooms/{{roomId}}/questions
+Accept: application/json
+Content-Type: application/json
+
+{
+    "question": "O que é vue js e como ele se relaciona com React"
+}
