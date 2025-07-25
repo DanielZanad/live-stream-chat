@@ -1,6 +1,7 @@
 use sqlx::PgPool;
 
 pub async fn seed_rooms(pool: &PgPool) -> Result<(), sqlx::Error> {
+    sqlx::query!("DELETE FROM questions").execute(pool).await?;
     sqlx::query!("DELETE FROM rooms").execute(pool).await?;
 
     let rooms = vec![

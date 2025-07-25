@@ -1,4 +1,4 @@
-use actix_web::{Error, HttpResponse, error, get, post, web};
+use actix_web::{Error, HttpResponse, error, post, web};
 use futures::StreamExt;
 use serde::{Deserialize, Serialize};
 use sqlx::{PgPool, types::uuid};

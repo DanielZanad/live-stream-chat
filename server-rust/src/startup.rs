@@ -4,7 +4,8 @@ use sqlx::PgPool;
 use std::net::TcpListener;
 
 use crate::routes::{
-    create_question::create_question, create_room::create_room, get_rooms::get_rooms,
+    create_question::create_question, create_room::create_room,
+    get_room_questions::get_room_questions, get_rooms::get_rooms,
 };
 
 #[get("/")]
@@ -26,6 +27,7 @@ pub fn run(listener: TcpListener, db_pool: PgPool) -> Result<Server, std::io::Er
             .service(create_room)
             .service(create_question)
             .service(get_rooms)
+            .service(get_room_questions)
             .app_data(connection.clone())
     })
     .listen(listener)?

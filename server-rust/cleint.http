@@ -41,5 +41,5 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "question": "O que é vue js e como ele se relaciona com React"
+    "question": "O que é Rust"
 }
