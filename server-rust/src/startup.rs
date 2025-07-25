@@ -5,7 +5,7 @@ use std::net::TcpListener;
 
 use crate::routes::{
     create_question::create_question, create_room::create_room,
-    get_room_questions::get_room_questions, get_rooms::get_rooms,
+    get_room_questions::get_room_questions, get_rooms::get_rooms, upload_audio::upload_audio,
 };
 
 #[get("/")]
@@ -17,6 +17,7 @@ pub fn run(listener: TcpListener, db_pool: PgPool) -> Result<Server, std::io::Er
     let connection = web::Data::new(db_pool);
     let server = HttpServer::new(move || {
         let cors = Cors::default()
+            .allowed_origin("http://localhost:5173")
             .allowed_methods(vec!["GET", "POST"])
             .allowed_headers(vec![http::header::AUTHORIZATION, http::header::ACCEPT])
             .allowed_header(http::header::CONTENT_TYPE)
@@ -28,6 +29,7 @@ pub fn run(listener: TcpListener, db_pool: PgPool) -> Result<Server, std::io::Er
             .service(create_question)
             .service(get_rooms)
             .service(get_room_questions)
+            .service(upload_audio)
             .app_data(connection.clone())
     })
     .listen(listener)?

@@ -30,16 +30,16 @@ Content-Type: application/json
 
 # Get room questions
 # @name getRoomsQuestions
-GET {{baseurl}}/rooms/{{roomId}}/questions
+GET {{baseurl}}/rooms/c976e450-8d95-4d25-bb75-981bba9c24b5/questions
 
 ###
 
 # Create question
 # @name createQuestion
-POST {{baseurl}}/rooms/{{roomId}}/questions
+POST {{baseurl}}/rooms/c976e450-8d95-4d25-bb75-981bba9c24b5/questions
 Accept: application/json
 Content-Type: application/json
 
 {
-    "question": "O que é Rust"
+    "question": "Faz sentido aprender Typescript avançado?"
 }
