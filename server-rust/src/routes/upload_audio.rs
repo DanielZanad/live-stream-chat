@@ -97,9 +97,6 @@ pub async fn upload_audio(
         .await
         .map_err(|_| error::ErrorBadRequest("Invalid response from transcription API"))?;
 
-    println!("Transcription: {:?}", result.transcription);
-    println!("Embeddings: {:?}", result.embeddings);
-
     let result = sqlx::query!(
         "INSERT INTO audio_chunks (roomid, transcription, embeddings) VALUES ($1, $2, $3) RETURNING id",
         room_id,

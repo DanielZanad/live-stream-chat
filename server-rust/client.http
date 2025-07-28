@@ -30,13 +30,13 @@ Content-Type: application/json
 
 # Get room questions
 # @name getRoomsQuestions
-GET {{baseurl}}/rooms/c976e450-8d95-4d25-bb75-981bba9c24b5/questions
+GET {{baseurl}}/rooms/{{roomId}}/questions
 
 ###
 
 # Create question
 # @name createQuestion
-POST {{baseurl}}/rooms/c976e450-8d95-4d25-bb75-981bba9c24b5/questions
+POST {{baseurl}}/rooms/{{roomId}}/questions
 Accept: application/json
 Content-Type: application/json
 

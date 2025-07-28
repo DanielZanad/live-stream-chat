@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useRef, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import { record } from "zod";
 
 type RoomParams = {
   roomId: string;
@@ -27,14 +26,26 @@ export function RecordRoomAudio() {
   }
 
   async function uploadAudio(audio: Blob) {
-    // application/multiform-data
     const formData = new FormData();
     formData.append("file", audio, "audio.webm");
+
+    const metadata = { name: "audio_recording_" + new Date().getTime() };
+    const jsonBlob = new Blob([JSON.stringify(metadata)], {
+      type: "application/json",
+    });
+    formData.append("json", jsonBlob);
 
     const response = await fetch(
       `http://localhost:3333/rooms/${params.roomId}/audio`,
       { method: "POST", body: formData }
     );
+
+    if (!response.ok) {
+      console.error("Upload failed:", response.status, response.statusText);
+      const errorData = await response.text();
+      console.error("Server response:", errorData);
+      return;
+    }
 
     const result = await response.json();
     console.log(result);
